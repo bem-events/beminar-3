@@ -1,12 +1,6 @@
-### Working files for webinar about using BEM with HTML/CSS
+### Working files for webinar about using BEM with JS
 
-Description and video can be found on
-[bem.info](https://ru.bem.info/talks/beminar-css-2015/)
+Видео будет на сайте [bem.info](https://ru.bem.info/events/beminar-july-2015/)
+Следите за обновлениями в twitter @bem_ru
 
-Slides on [gh-pages](https://bem-events.github.io/beminar-1/)
-
-For easy and fast clone run:
-
-```
-git clone -b master --single-branch git@github.com:bem-events/beminar-1.git
-```
+Слайды https://yadi.sk/i/EQVBDpGkhj4TA

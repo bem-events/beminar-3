@@ -17,7 +17,7 @@ var params = {
 
 gulp.task('default', ['server', 'build']);
 
-gulp.task('build', ['html', 'css', 'images']);
+gulp.task('build', ['html', 'css', 'images', 'js']);
 
 gulp.task('server', function() {
     browserSync.init({
@@ -30,6 +30,12 @@ gulp.task('server', function() {
         var cssGlob = level + '/**/*.css';
         return cssGlob;
     }), ['css']);
+
+    gulp.watch(params.levels.map(function(level) {
+        var jsGlob = level + '/**/*.js';
+        return jsGlob;
+    }), ['js']);
+
 });
 
 gulp.task('html', function() {
@@ -63,4 +69,22 @@ gulp.task('images', function() {
         .pipe(gulp.dest(path.join(params.out + '/images/')));
     })
     .done();
+});
+
+gulp.task('js', function() {
+    getFileNames.then(function(src) {
+        return src.dirs.map(function(dirName) {
+            var jsGlob = path.resolve(dirName) + '/*.js';
+            console.log(jsGlob);
+            return jsGlob;
+        });
+    })
+        .then(function(jsGlobs) {
+            console.log(jsGlobs);
+            gulp.src(jsGlobs)
+                .pipe(concat('app.js'))
+                .pipe(gulp.dest(params.out))
+                .pipe(reload({ stream: true }));
+        })
+        .done();
 });

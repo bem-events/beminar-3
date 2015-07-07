@@ -31,3 +31,13 @@
     font-size: 18px;
 }
 
+.form__popup {
+    display: none;
+}
+
+.form__popup.form__popup_visible {
+    display: block;
+    background: rgba(255, 0, 0, 0.6);
+    border: 1px solid red;
+    color: white;
+}
